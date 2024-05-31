@@ -1,0 +1,20 @@
+.chartcontainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 600px;
+    height: 400px;
+    border: 1px solid #000;
+    margin: 50px auto;
+}
+    
+.bar {
+    width: 40px;
+    background-color: rgba(0, 123, 255, 0.6);
+    text-align: center;
+    color: #fff;
+}
+.barLabel {
+    margin-top: 10px;
+    text-align: center;
+}
