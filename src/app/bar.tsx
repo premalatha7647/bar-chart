@@ -1,4 +1,6 @@
+'use client';
 import barStyle from "@/app/styles/Barchart.module.css";
+import { useState } from 'react';
 export function Bar() {
   return (
     <>
@@ -12,7 +14,22 @@ export function Bar() {
   );
 }
 export default function Barchart() {
-  const barData = [30, 20, 10, 20, 40];
+  const [barData, setBardata] = useState([30, 20, 10, 20, 40]);
+    function handleClick() {
+      let updatedArray = randomlyUpdateArray(barData);
+      setBardata( updatedArray);
+    }
+    function getRandomInt(min: number, max: number) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    function randomlyUpdateArray(array: any[]) {
+      let randomIndex = getRandomInt(0, array.length - 1);
+      let newValue = getRandomInt(1, 10);
+      array[randomIndex] = newValue;
+      return array;
+    }
+
+
   return (
     <>
       <div className={barStyle.chartcontainer}>
@@ -26,7 +43,8 @@ export default function Barchart() {
           </div>
         ))}
       </div>
-      <Bar></Bar>
+      {/* <Bar></Bar> */}
+      <button onClick={handleClick}>Regenerator</button>
     </>
   );
 }
